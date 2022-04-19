@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="./files/jquery.min.js"></script>
+    <script src="./files/toAntiguo.js"></script>
+    <script src="./files/values.js"></script>
+    <link href='https://fonts.googleapis.com/css2?family=Nunito:wght@200;300&display=swap' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="./files/style.css">
+</head>
+
+<body> 
+  <h1>Traductor Alfanumérico de Antiguo</h1>
+  <div class="container">
+    <div class="number-translators">
+      <div class="number-translator spanish-to-antiguo-number">
+        <span class="spanish-to-antiguo-text">Número a Antiguo</span>
+        <span class="antiguo-font antiguo-from-spanish" id="antiguo-from-spanish-number">0 1 2 3 4</span>
+        <input type="number" min="1" placeholder="Escribe números aquí" id="text-input-number" onkeyup="transcribeNumberFromInput()">
+      </div>
+
+      <div class="number-translator antiguo-to-spanish-number">
+        <span id="blanco">Antiguo a Número</span>
+        <div class="base">Base 5:</div> <span class="antiguo-font antiguo-from-spanish" id="antiguo-number">01234</span>
+        <div class="base">Base 10:</div> <span class="antiguo-from-spanish" id="number-from-antiguo-number">01234</span>
+        <div id="antiguo-numbers-grid">
+          <!-- <button class="antiguo-button" button-value="0">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="0">0</span>
+            <span class="button-content button-content-letter" button-value="0">0</span>
+          </button>
+          <button class="antiguo-button" button-value="1">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="1">1</span>
+            <span class="button-content button-content-letter" button-value="1">1</span>
+          </button>
+          <button class="antiguo-button" button-value="2">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="2">2</span>
+            <span class="button-content button-content-letter" button-value="2">2</span>
+          </button>
+          <button class="antiguo-button" button-value="3">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="3">3</span>
+            <span class="button-content button-content-letter" button-value="3">3</span>
+          </button>
+          <button class="antiguo-button" button-value="4">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="4">4</span>
+            <span class="button-content button-content-letter" button-value="4">4</span>
+          </button> -->
+        </div>       
+        <button class="star" onclick="cleanAntiguoToNumber()">Limpiar</button>
+        <button class="star" onclick="cleanLastAntiguoToNumber()">Borrar ultimo</button>
+      </div>
+    </div> 
+
+
+    <div class="text-translators">
+      <div class="text-translator spanish-to-antiguo-text">
+        <span>Antiguo a Texto</span>
+        <span class="antiguo-font antiguo-from-spanish" id="antiguo-from-spanish-text">Este es un ejemplo</span>
+        <textarea type="text" maxlength="40" id="text-input-text" placeholder="Escribe algo aquí" onkeyup="transcribeTextFromInput()"></textarea>
+      </div>
+  
+      <div class="antiguo-to-spanish-text">
+        <span>Texto a Antiguo</span>
+        <span class="antiguo-font text-translator antiguo-from-spanish" id="antiguo-from-letter">Este es un ejemplo</span>
+
+        <span class="text-translator antiguo-from-spanish" id="antiguo-from-letter-text">Este es un ejemplo</span>
+
+        <button class="fini" onclick="cleanAntiguoToLetter()">Limpiar</button>
+
+        <button class="fini" onclick="cleanLastAntiguoToLetter()">Borrar ultimo</button>
+
+        <div id="antiguo-letters-grid"> <!--
+          <button class="antiguo-button" button-value="H" button-text="a">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="H" button-text="a">H</span>
+            <span class="button-content button-content-letter" button-value="H" button-text="a">a</span>
+          </button>
+          <button class="antiguo-button" button-value="b" button-text="b">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="b" button-text="b">b</span>
+            <span class="button-content button-content-letter" button-value="b" button-text="b">b</span>
+          </button>
+          <button class="antiguo-button" button-value="B" button-text="ba">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="B" button-text="ba">B</span>
+            <span class="button-content button-content-letter" button-value="B" button-text="ba">ba</span>
+          </button>
+          <button class="antiguo-button" button-value="c" button-text="c">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="c" button-text="c">c</span>
+            <span class="button-content button-content-letter" button-value="c" button-text="c">c</span>
+          </button>
+          <button class="antiguo-button" button-value="C" button-text="ca">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="C" button-text="ca">C</span><span class="button-content button-content-letter" button-value="C" button-text="ca">ca</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="d" button-text="d">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="d" button-text="d">d</span>
+            <span class="button-content button-content-letter" button-value="d" button-text="d">d</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="D" button-text="da">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="D" button-text="da">D</span>
+            <span class="button-content button-content-letter" button-value="D" button-text="da">da</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="e" button-text="e">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="e" button-text="e">e</span>
+            <span class="button-content button-content-letter" button-value="e" button-text="e">e</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="f" button-text="f">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="f" button-text="f">f</span>
+            <span class="button-content button-content-letter" button-value="f" button-text="f">f</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="F" button-text="fa">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="F" button-text="fa">F</span>
+            <span class="button-content button-content-letter" button-value="F" button-text="fa">fa</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="g" button-text="g">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="g" button-text="g">g</span>
+            <span class="button-content button-content-letter" button-value="g" button-text="g">g</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="G" button-text="ga">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="G" button-text="ga">G</span>
+            <span class="button-content button-content-letter" button-value="G" button-text="ga">ga</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="h" button-text="h">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="h" button-text="h">h</span>
+            <span class="button-content button-content-letter" button-value="h" button-text="h">h</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="H" button-text="ha">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="H" button-text="ha">H</span>
+            <span class="button-content button-content-letter" button-value="H" button-text="ha">ha</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="i" button-text="i">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="i" button-text="i">i</span>
+            <span class="button-content button-content-letter" button-value="i" button-text="i">i</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="j" button-text="j">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="j" button-text="j">j</span>
+            <span class="button-content button-content-letter" button-value="j" button-text="j">j</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="J" button-text="ja">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="J" button-text="ja">J</span>
+            <span class="button-content button-content-letter" button-value="J" button-text="ja">ja</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="k" button-text="k">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="k" button-text="k">k</span>
+            <span class="button-content button-content-letter" button-value="k" button-text="k">k</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="K" button-text="ka">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="K" button-text="ka">K</span>
+            <span class="button-content button-content-letter" button-value="K" button-text="ka">ka</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="l" button-text="l">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="l" button-text="l">l</span>
+            <span class="button-content button-content-letter" button-value="l" button-text="l">l</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="L" button-text="la">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="L" button-text="la">L</span>
+            <span class="button-content button-content-letter" button-value="L" button-text="la">la</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="m" button-text="m">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="m" button-text="m">m</span>
+            <span class="button-content button-content-letter" button-value="m" button-text="m">m</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="M" button-text="ma">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="M" button-text="ma">M</span>
+            <span class="button-content button-content-letter" button-value="M" button-text="ma">ma</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="n" button-text="n">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="n" button-text="n">n</span>
+            <span class="button-content button-content-letter" button-value="n" button-text="n">n</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="N" button-text="na">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="N" button-text="na">N</span>
+            <span class="button-content button-content-letter" button-value="N" button-text="na">na</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="o" button-text="o">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="o" button-text="o">o</span>
+            <span class="button-content button-content-letter" button-value="o" button-text="o">o</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="p" button-text="p">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="p" button-text="p">p</span>
+            <span class="button-content button-content-letter" button-value="p" button-text="p">p</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="P" button-text="pa">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="P" button-text="pa">P</span>
+            <span class="button-content button-content-letter" button-value="P" button-text="pa">pa</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="q" button-text="q">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="q" button-text="q">q</span>
+            <span class="button-content button-content-letter" button-value="q" button-text="q">q</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="Q" button-text="qa">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="Q" button-text="qa">Q</span>
+            <span class="button-content button-content-letter" button-value="Q" button-text="qa">qa</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="r" button-text="r">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="r" button-text="r">r</span>
+            <span class="button-content button-content-letter" button-value="r" button-text="r">r</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="R" button-text="ra">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="R" button-text="ra">R</span>
+            <span class="button-content button-content-letter" button-value="R" button-text="ra">ra</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="s" button-text="s">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="s" button-text="s">s</span>
+            <span class="button-content button-content-letter" button-value="s" button-text="s">s</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="S" button-text="sa">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="S" button-text="sa">S</span>
+            <span class="button-content button-content-letter" button-value="S" button-text="sa">sa</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="t" button-text="t">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="t" button-text="t">t</span>
+            <span class="button-content button-content-letter" button-value="t" button-text="t">t</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="t" button-text="ta">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="t" button-text="ta">t</span>
+            <span class="button-content button-content-letter" button-value="ta" button-text="ta">ta</span
+            ></button>
+          
+          <button class="antiguo-button" button-value="u" button-text="u">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="u" button-text="u">u</span>
+            <span class="button-content button-content-letter" button-value="u" button-text="u">u</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="v" button-text="v">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="v" button-text="v">v</span>
+            <span class="button-content button-content-letter" button-value="v" button-text="v">v</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="V" button-text="va">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="V" button-text="va">V</span>
+            <span class="button-content button-content-letter" button-value="V" button-text="va">va</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="w" button-text="w">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="w" button-text="w">w</span>
+            <span class="button-content button-content-letter" button-value="w" button-text="w">w</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="W" button-text="wa">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="W" button-text="wa">W</span>
+            <span class="button-content button-content-letter" button-value="W" button-text="wa">wa</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="x" button-text="x">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="x" button-text="x">x</span>
+            <span class="button-content button-content-letter" button-value="x" button-text="x">x</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="X" button-text="xa">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="X" button-text="xa">X</span>
+            <span class="button-content button-content-letter" button-value="X" button-text="xa">xa</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="y" button-text="y">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="y" button-text="y">y</span>
+            <span class="button-content button-content-letter" button-value="y" button-text="y">y</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="Y" button-text="ya">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="Y" button-text="ya">Y</span>
+            <span class="button-content button-content-letter" button-value="Y" button-text="ya">ya</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="z" button-text="z">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="z" button-text="z">z</span>
+            <span class="button-content button-content-letter" button-value="z" button-text="z">z</span>
+          </button>
+          
+          <button class="antiguo-button" button-value="Z" button-text="za">
+            <span class="antiguo-font button-content button-content-antiguo" button-value="Z" button-text="za">Z</span>
+            <span class="button-content button-content-letter" button-value="Z" button-text="za">za</span>
+          </button>-->
+        </div>       
+      </div>      
+    </div>   
+  </div>
+  <button class="final boton-verde">
+      <a href=https://github.com/Sebasss42/AntiguoTranslator2.0/blob/main/files/antiguo_jesulink.ttf target="_blank">Descargar Fuente</a>
+    </button>
+  <button class="final boton-rojo">
+      <a href="https://jesulink.com/descargas.php?sub=cincoelementos" target="_blank">Leer 5 elementos</a>
+    </button>
+  <footer>
+    <p>Idea, Funcionamiento por Diphendara.</p>
+    <p>Diseño por SebaStudios</p>
+  </footer>
+</body>
+</html>
