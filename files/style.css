@@ -25,7 +25,7 @@ body{
 }
 
 h1{
-  color: white; 
+  color: Gainsboro; 
 }
 
 .container {
@@ -40,7 +40,7 @@ h1{
   text-align: center;
   justify-content: space-around;
   margin-top: 6rem;
-  color: white;
+  color: WhiteSmoke;
 }
 
 .number-translator, .text-translator {
@@ -50,11 +50,11 @@ h1{
 
 .antiguo-from-spanish {  
   font-size: 40px;
-  color: white;
+  color: WhiteSmoke;
 }
 
 .spanish-to-antiguo-text {  
-  color: white;
+  color: WhiteSmoke;
 }
 
 #antiguo-numbers-grid, #antiguo-letters-grid {
@@ -95,7 +95,7 @@ h1{
 
 .antiguo-to-spanish-text {
   width: 40%;
-  color: white;
+  color: WhiteSmoke;
 }
 
 #text-input-number, #text-input-text{
@@ -148,7 +148,7 @@ input::-webkit-inner-spin-button {
 }
 
 .final a{
-  color: white;
+  color: WhiteSmoke;
   text-decoration: none;
 }
 
@@ -169,7 +169,7 @@ input::-webkit-inner-spin-button {
 }
 
 footer{
-  color: white;
+  color: WhiteSmoke;
 }
 
 @media (max-width: 760px){
@@ -182,7 +182,7 @@ footer{
   
   h1{
     font-size: 9vw;
-    color: white;
+    color: WhiteSmoke;
   }
   
   .container {
@@ -195,7 +195,7 @@ footer{
   .number-translators, .text-translators {
     display:block;
     text-align: center;
-    color: white;
+    color: WhiteSmoke;
   }
   
   .number-translator, .text-translator {
@@ -210,14 +210,14 @@ footer{
   
   .antiguo-from-spanish {  
     font-size: 10vw;
-    color: white;
+    color: WhiteSmoke;
   }
   
   .spanish-to-antiguo-text {  
     text-align: center;
     
     font-size: 5vw;  
-    color: white;
+    color: WhiteSmoke;
   }
 
   .spanish-to-antiguo-text:first-of-type{
@@ -273,7 +273,7 @@ footer{
     width: 99%;
     font-size: 2em;  
     margin-top: 6rem;
-    color: white;
+    color: WhiteSmoke;
   }
 
   #antiguo-from-letter-text, #antiguo-from-letter{
@@ -334,7 +334,7 @@ footer{
   }
   
   .final a{
-    color: white;
+    color: WhiteSmoke;
     text-decoration: none;
   }
   
@@ -355,7 +355,7 @@ footer{
   }
   
   footer{
-    color: white;
+    color: WhiteSmoke;
     font-size: 3vw;
   }
 
