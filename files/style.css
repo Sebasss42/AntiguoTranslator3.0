@@ -1,0 +1,332 @@
+*{
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "antiguoFont";
+  src: url("antiguo_jesulink.ttf")
+}
+
+body{
+  background-image: url(backgroun.png);
+  background-position: center;
+  background-size: cover;
+}
+
+h1, .spanish-to-antiguo-text, footer{
+  color: white; 
+}
+
+.container {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+}
+
+.number-translators, .text-translators {
+  text-align: center;
+  justify-content: space-around;
+  margin-top: 6rem;
+  color: white;
+}
+
+.number-translator, .text-translator {
+  display: flex;
+  flex-direction: column;  
+}
+
+#antiguo-numbers-grid, #antiguo-letters-grid {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#antiguo-letters-grid {
+  margin: auto;
+}
+
+.antiguo-button {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-content {
+  margin: auto  
+}
+
+.antiguo-font {
+  font-family: "antiguoFont";
+  font-weight: 100;
+}
+
+.antiguo-to-spanish-text {
+  color: white;
+}
+
+button{
+  border: none;
+  border-radius: 1em;
+}
+
+button:hover{
+  background-color: darkgray;
+}
+
+button:active{
+  background-color: grey;
+  color: LightGray;
+}
+
+.star{
+  margin-top: 3%;
+  padding: 2% 0;
+}
+
+.fini{
+  margin: 3%;
+  padding: 2% 5%;
+}
+
+textarea, div div div input{
+  border: 1em;
+}
+
+textarea:focus, div div div input:focus{
+  outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.final{
+  color: white;
+  text-decoration: none;
+  border-radius: 2em;
+}
+
+.boton-verde{
+  background-color: #308D32;
+}
+
+.boton-verde:hover{
+  background-color: #5fa160;
+}
+
+.boton-rojo{
+  background-color: #C3041A;
+}
+
+.boton-rojo:hover{
+  background-color: #C9543B;
+}
+
+@media screen and (min-width: 768px) {
+
+  h1{
+    font-size: 9vw;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+  .number-translators, .text-translators {
+    display:block;
+  }
+
+  
+  .number-translator, .text-translator {
+    margin-top: 6rem;
+  }
+
+  .number-translator:first-of-type{
+    margin-top: 0;
+  }
+
+  .antiguo-from-spanish {  
+    font-size: 10vw;
+    color: white;
+  }
+  
+  .spanish-to-antiguo-text {  
+    text-align: center;
+    font-size: 5vw;  
+    color: white;
+  }
+
+  .spanish-to-antiguo-text:first-of-type{
+    margin-top: 2rem;
+  }
+  
+  #antiguo-numbers-grid, #antiguo-letters-grid {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  #antiguo-numbers-grid{
+    margin-left: 14%;
+  }
+  
+  #antiguo-letters-grid {
+    margin: auto;
+    margin-left: 8%;
+  }
+
+  .antiguo-button {
+    width: 15%;
+    margin-left: 1%;
+    margin-top: 2%;
+    padding-top: 2%;
+  }
+
+  #antiguo-letters-grid .antiguo-button{
+    margin-left: 2.5%;
+  }
+
+  .button-content-antiguo {
+    padding-left: 0.1rem;
+    font-size: 9vw;
+  }
+  
+  .button-content-letter {
+    font-size: 6vw;
+  }
+
+  .antiguo-to-spanish-text {
+    width: 99%;
+    font-size: 2em;  
+    margin-top: 6rem;
+  }
+
+  #bobo{
+    font-size: 20px;  
+  }
+
+  #antiguo-from-letter-text, #antiguo-from-letter{
+    margin: 0;
+  }
+  
+  #text-input-number, #text-input-text{
+    padding: 0.4em;
+    font-size: 6vw;
+  }
+
+  .star{
+    font-size: 4vw;
+  }
+  
+  .fini{
+    font-size: 4vw;
+  }
+  
+  .final{
+    font-size: 5vw;
+    text-align: center;
+    padding: 3% 4%;
+    display: block;
+    margin: 5%;
+    width: 80%;
+  }
+  
+  footer{
+    font-size: 3vw;
+  }
+
+  #blanco{
+    font-size: 5vw;
+  }
+
+  .base{
+    font-size: 4.5vw;
+  }
+
+}
+
+@media screen and (min-width: 992px){
+
+  h1{
+    font-size: 40px;
+  }
+        
+  .container {
+    width: 70%;
+  }
+
+  .number-translators, .text-translators {
+    display: flex;
+  }
+
+  .number-translator, .text-translator {
+    margin-top: 0;
+  }
+
+  .antiguo-from-spanish {  
+    font-size: 40px;
+  }
+  
+  .spanish-to-antiguo-text {  
+    text-align: center;
+    font-size: 20px; 
+    margin-top: 0;
+  }
+
+  #antiguo-numbers-grid{
+    margin-left: auto;
+  }
+  
+  #antiguo-letters-grid {
+    margin: auto;
+    padding: 0 2%;
+  }
+
+  .antiguo-button {
+    width: 2.7rem;
+    margin: 0.5rem 0.25rem;
+  }
+
+  .button-content-antiguo {
+    padding-left: 0.1rem;
+    font-size: 2rem;
+  }
+
+  .button-content-letter {
+    font-size: 1.5rem;
+  }
+
+  .antiguo-to-spanish-text {
+    width: 40%;
+    font-size: 2em;  
+    margin-top: auto;
+  }
+
+  #antiguo-from-letter-text, #antiguo-from-letter{
+    margin: auto;
+  }
+
+  #text-input-number, #text-input-text{
+    font-size: 15px;
+  }
+
+  .star, .fini{
+    font-size: 15px;
+  }
+
+  .final{
+    display: inline-block;
+    font-size: larger;
+    padding: 1%;
+    margin: 5%;
+    margin-left: 16%;
+    width: 20%;
+  }
+
+  footer, #blanco{
+    font-size: 20px;
+  }
+
+  .base{
+    font-size: 18px;
+  }
+}
